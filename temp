@@ -1,0 +1,23 @@
+<html>
+
+<head>       <title>Internet Access Login</title>
+    <link rel="stylesheet" href="http://forms.carolinas.aaa.com/Landing-Pages/Wireless/css/style.css">
+
+</head><body>
+
+<h2>Internet Access Login</h2>
+
+
+    <div class="centerbtn">
+        <form method="get" action="<? urldecode(GET['base_grant_url'] + "?continue_url=" + GET['user_continue_url']) ?>">
+
+            <button class="step-button action-button finish-step" type="submit" id="login-btn" name="login-btn" value="Login To Wi-Fi">LOGIN</button>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+</html>
