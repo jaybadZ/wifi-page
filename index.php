@@ -23,6 +23,23 @@
 
 		
 	</head><!--/head-->
+    <?php
+    $base_grant_url = urldecode($_GET['base_grant_url']);
+    $user_continue_url = urldecode($_GET['user_continue_url']);
+    $override_continue_url = 'http://www.aaa.com';
+
+    $override_the_users_request = false;
+    if ($override_the_users_request) {
+        $grant_url = $base_grant_url . "?continue_url=" . urlencode($override_continue_url);
+    } else {
+        $grant_url = $base_grant_url . "?continue_url=" . urlencode($user_continue_url);
+    }
+
+    // The following parameters may be used for tracking purposes. They are not necessary for authentication.
+    $node_id = urldecode($_GET['node_id']);
+    $gateway_id = urldecode($_GET['gateway_id']);
+    $client_ip = urldecode($_GET['client_ip']);
+    ?>
 	<body data-spy="scroll">
         <header id="header" role="banner">
             <div class="container">
@@ -184,7 +201,7 @@
                         <p style="text-align: center; color: #bf4040">Please Select To Access Wi-Fi</p>
 
                         <div class="centerbtn">
-                            <form action="<?php $_GET['base_grant_url'] . '?continue_url=' . $_GET['user_continue_url'] ?>" method="get">
+                            <form action="<?php print $grant_url ?>" method="get">
 
                             <button class="step-button action-button finish-step" type="submit" id="login-btn" name="login-btn" value="Login To Wi-Fi">LOGIN</button>
                             </form>
